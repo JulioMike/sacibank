@@ -1,36 +1,41 @@
-const mongoose = require('mongoose');
+const mongoose = require("mongoose");
+const crypto = require("crypto");
 
-const validarEmail = (email)=>{
-    let re = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
-    return re.test(email);
-} 
+const validarEmail = (email) => {
+  let re = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+  return re.test(email);
+};
 
-const validarCPF = (cpf)=>{
-    let re = /^((\d{3}).(\d{3}).(\d{3})-(\d{2}))*$/;
-    return re.test(cpf);
-}
+const validarCPF = (cpf) => {
+  let re = /^((\d{3}).(\d{3}).(\d{3})-(\d{2}))*$/;
+  return re.test(cpf);
+};
 
 const usersSchema = new mongoose.Schema({
-    nome: {type:String, required:true},
-    email: {
-        type:String,
-        trim:true,
-        lowercase:true,
-        unique:true,
-        required:true,
-        validate:[validarEmail],
-        match:[/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/]
-    },
-    senha: {type:String, required:true},
-    cpf: {
-        type:String, 
-        required:true,
-        unique:true,
-        validate:[validarCPF]
-    },
-    celular:{type:Number, required:true},
-    limite:{type:Number, required:true},
-    numeroconta:{type:String, required:true, unique:true}
+  nome: { type: String, required: true },
+  email: {
+    type: String,
+    trim: true,
+    lowercase: true,
+    unique: true,
+    required: true,
+    validate: [validarEmail],
+    match: [/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/],
+  },
+  senha: {
+    type: String,
+    required: true,
+    set: (value) => crypto.createHash("md5").update(value).digest("hex"),
+  },
+  cpf: {
+    type: String,
+    required: true,
+    unique: true,
+    validate: [validarCPF],
+  },
+  celular: { type: Number, required: true },
+  limite: { type: Number, required: true },
+  numeroconta: { type: String, required: true, unique: true },
 });
 
 const users_model = mongoose.model("users", usersSchema);

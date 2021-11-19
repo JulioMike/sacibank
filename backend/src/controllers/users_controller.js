@@ -8,24 +8,9 @@ module.exports = {
       const results = await Users.find({}, { __V: 0 });
 
       res.send(results);
-    } catch (error) {
-      console.log(error.message);
-    }
-  },
-  createUsers: async (req, res, next) => {
-    try {
-      const users = new Users(req.body);
-      const result = await users.save();
-
-      res.send(result);
 
     } catch (error) {
       console.log(error.message);
-      if (error.name === "ValidationError") {
-        res.status(422).json({ erro: error.message });
-        return;
-      }
-      next(error);
     }
   },
   findUsersById: async (req, res, next) => {
@@ -38,7 +23,6 @@ module.exports = {
         res.status(404).json({ mensagem: "Users não existe.." });
       }
       res.send(users);
-
     } catch (error) {
       console.log(error.message);
       if (error instanceof mongoose.CastError) {
@@ -78,7 +62,6 @@ module.exports = {
         res.status(404).json({ msg: "Users não existe..." });
       }
       res.send("usuario excluido com sucesso.");
-      
     } catch (error) {
       console.log(error.message);
       if (error instanceof mongoose.CastError) {
@@ -87,5 +70,5 @@ module.exports = {
       }
       next(error);
     }
-  },
+  }
 };
