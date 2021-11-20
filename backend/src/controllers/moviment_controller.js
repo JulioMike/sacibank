@@ -1,6 +1,8 @@
 
-const saque = require('../service/saque');
+const Saldo = require('../service/saldo');
+const Saque = require('../service/saque');
 
 module.exports = {
-  outSaque: saque.Saque
+  outSaque: Saque,
+  outSaldo: Saldo
 };
