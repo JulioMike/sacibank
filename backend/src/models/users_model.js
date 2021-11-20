@@ -1,5 +1,4 @@
 const mongoose = require("mongoose");
-const crypto = require("crypto");
 
 const validarEmail = (email) => {
   let re = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
@@ -24,8 +23,7 @@ const usersSchema = new mongoose.Schema({
   },
   senha: {
     type: String,
-    required: true,
-    set: (value) => crypto.createHash("md5").update(value).digest("hex"),
+    required: true
   },
   cpf: {
     type: String,
@@ -34,8 +32,10 @@ const usersSchema = new mongoose.Schema({
     validate: [validarCPF],
   },
   celular: { type: Number, required: true },
+  saldo: {type:Number, default: 0.00},
   limite: { type: Number, required: true },
-  numeroconta: { type: String, required: true, unique: true },
+  limiteatual: { type: Number, required: true},
+  numeroconta: { type: String, required: true, unique: true }
 });
 
 const users_model = mongoose.model("users", usersSchema);
