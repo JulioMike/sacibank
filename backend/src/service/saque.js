@@ -24,7 +24,7 @@ module.exports = Saque = async (req, res, next) => {
       } else if (valor > user_auth.saldo && valor <= user_auth.limiteatual) {
         desconto = user_auth.limiteatual - valor;
         uso_limite = true;
-      } else if (valor < user_auth.saldo) {
+      } else if (valor <= user_auth.saldo) {
         desconto = user_auth.saldo - valor;
       }
 
