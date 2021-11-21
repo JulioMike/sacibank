@@ -16,13 +16,13 @@ module.exports = Pagamento = async (req, res, next) =>{
         if (senha == user_auth.senha) {
             if (valor > user_auth.saldo && valor > user_auth.limiteatual) {
                 res.status(404).json({
-                msg: "Você não tem saque e nem limite disponível para movimentação...",
+                msg: "Você não tem saldo e nem limite disponível para movimentação...",
                 });
             } else if (valor > user_auth.saldo && valor <= user_auth.limiteatual) {
                 if(user_auth.saldo<0){
                     if(valor>user_auth.limiteatual){
                         res.status(404).json({
-                            msg: "Você não tem saque e nem limite disponível para movimentação...",
+                            msg: "Você não tem saldo e nem limite disponível para movimentação...",
                         });     
                     }else{
                         desconto = user_auth.limiteatual - valor;    
@@ -52,6 +52,7 @@ module.exports = Pagamento = async (req, res, next) =>{
                 tipo: "PAGAMENTO",
                 valor: valor,
                 pagamento: identificador,
+                numeroconta:user_auth.numeroconta
             });
 
             const resultmoviment = await moviment.save();

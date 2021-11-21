@@ -7,6 +7,7 @@ const movimentSchema = new mongoose.Schema({
   cpf: {type: String},
   pagamento: {type:String},
   numeroconta:{type:Number},
+  numerocontadest:{type:Number},
   date: { type: Date, default: Date.now() },
 });
 
