@@ -7,7 +7,7 @@ module.exports = Saque = async (req, res, next) => {
   const user_auth = req.auth;
   const { valor, senha } = req.body;
   let desconto = 0,
-    uso_limite = false,
+    resto = 0,
     update = {},
     comprovante = {};
 
@@ -22,15 +22,27 @@ module.exports = Saque = async (req, res, next) => {
           msg: "Você não tem saque e nem limite disponível para movimentação...",
         });
       } else if (valor > user_auth.saldo && valor <= user_auth.limiteatual) {
-        desconto = user_auth.limiteatual - valor;
-        uso_limite = true;
-      } else if (valor <= user_auth.saldo) {
-        desconto = user_auth.saldo - valor;
-      }
+        if (user_auth.saldo < 0) {
+          if (valor > user_auth.limiteatual) {
+            res.status(404).json({
+              msg: "Você não tem saque e nem limite disponível para movimentação...",
+            });
+          } else {
+            desconto = user_auth.limiteatual - valor;
 
-      uso_limite
-        ? (update = { limiteatual: desconto })
-        : (update = { saldo: desconto });
+            update = { saldo: user_auth.saldo - valor, limiteatual: desconto };
+          }
+        } else {
+          resto = parseFloat(valor) - user_auth.saldo;
+
+          desconto = user_auth.limiteatual - resto;
+
+          update = { saldo: resto * -1, limiteatual: desconto };
+        }
+      } else if (valor <= user_auth.saldo) {
+        desconto = user_auth.saldo - parseFloat(valor);
+        update = { saldo: desconto };
+      }
 
       const resultusers = await Users.findByIdAndUpdate(user_auth._id, update, {
         new: true,
