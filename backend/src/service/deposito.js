@@ -45,6 +45,7 @@ module.exports = Deposito = async (req, res, next) => {
       valor: valor,
       nome: nome,
       cpf: cpf,
+      numeroconta: deposito.numeroconta
     });
 
     const resultmoviment = await moviment.save();
