@@ -17,6 +17,6 @@ app.use(users_routes);
 app.use(auth_routes);
 app.use(moviment_routes);
 
-app.listen(3000, () => {
+app.listen(3333, () => {
   console.log("Servidor rodando na porta 3000.");
 });
