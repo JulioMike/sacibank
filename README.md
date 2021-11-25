@@ -22,6 +22,7 @@ Ser um banco online, no qual possibilita as seguintes funções bancárias: SAQU
     <li>Banco de Dados: MongoDB(mongoose)</li>
     <li>Framework: express</li>
     <li>Frontend: Foi desenvolvido as telas de como seria o rosto da app, porém com imprevisto acabei não foi concluindo</li>
+    <li>Dependencias: body-parse; cors; express; jsonwebtoken e mongoose. </li>
  </ul>
 
 
