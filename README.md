@@ -38,5 +38,8 @@ Ser um banco online, no qual possibilita as seguintes funções bancárias: SAQU
 <h1>Telas Desenvolvidas para o Frontend</h1>
 <br>
 
+![Tela Inicial (7)](https://user-images.githubusercontent.com/42989794/143377538-3e45ea09-bbfa-4f5d-b1e6-aec4bd00ae11.png)
+
+
 
 
