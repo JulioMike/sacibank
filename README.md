@@ -37,15 +37,13 @@ Ser um banco online, no qual possibilita as seguintes funções bancárias: SAQU
 
 <h1>Telas Desenvolvidas para o Frontend</h1>
 <br>
-<h2>Tela Inicial</h2>
-![Tela Inicial (7)](https://user-images.githubusercontent.com/42989794/143377538-3e45ea09-bbfa-4f5d-b1e6-aec4bd00ae11.png)
-<br>
-<h2>Tela Login</h2>
-![Tela Login](https://user-images.githubusercontent.com/42989794/143377644-5feba22b-39bd-4b26-84e3-22471eacfc87.png)
-<br>
-<h2>Tela Dashboard</h2>
 
-<br>
+![Tela Inicial (7)](https://user-images.githubusercontent.com/42989794/143377538-3e45ea09-bbfa-4f5d-b1e6-aec4bd00ae11.png)
+
+![Tela Login](https://user-images.githubusercontent.com/42989794/143377644-5feba22b-39bd-4b26-84e3-22471eacfc87.png)
+
+![Tela Principal](https://user-images.githubusercontent.com/42989794/143377817-38429784-f57b-40b0-8410-e3e0a5e86f37.png)
+
 
 
 
