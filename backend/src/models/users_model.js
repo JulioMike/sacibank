@@ -35,7 +35,8 @@ const usersSchema = new mongoose.Schema({
   saldo: {type:Number, default: 0.00},
   limite: { type: Number, required: true },
   limiteatual: { type: Number, required: true},
-  numeroconta: { type: String, required: true, unique: true }
+  numeroconta: { type: String, required: true, unique: true },
+  isAdmin: {type:Boolean, default:false}
 });
 
 const users_model = mongoose.model("users", usersSchema);

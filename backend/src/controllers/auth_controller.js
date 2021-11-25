@@ -3,9 +3,14 @@ const Auth = require("../config/auth");
 
 const Users = require("../models/users_model");
 
+
 module.exports = {
   registerUsers: async (req, res, next) => {
+    let numeroconta = ((Math.random()*(999999-1+1))+1).toFixed()  ;
     try {
+
+      req.body.limiteatual = req.body.limite;
+      req.body.numeroconta = numeroconta.toString();
       const users = new Users(req.body);
       const result = await users.save();
       const { senha, ...user } = result.toObject();
