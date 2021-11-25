@@ -63,6 +63,20 @@ Ser um banco online, no qual possibilita as seguintes funções bancárias: SAQU
  </li>
 </ol>
 
+<h1>Teste: Casos de uso </h1>
+<br>
+
+<h4> Existe 3 pastas de rotas no arquivo Insomnia, Users só acessar com o Admin, Auth onde fica Login Users e Create Users e Moviment onde será realizado os movimentos. </h4>
+<ol>
+ <li> Abra uma conta em Create Users, só preencher os campos.  </li>
+ <li> Em login Users, utilize o  CPF(Username) e senha(Password), na Aba Basic, Guarde o Token que virá.  </li>
+ <li> E em seguida pode ir para a pasta Moviment, e utilizar qualquer ação passando o Token resultante do login e preenchendo os campos. Ex: 
+   <br>
+  <h5> SAQUE: Token (Login) na aba Basic(Bearer) e digite o valor e a sua senha de acesso. </h5> 
+ </li>
+</ol>
+<h4>Para visitar as rotas de Admin, utiliza-se: User: 000.000.000-00 e password: 1010 (Isto só ficará visto na avaliação.). E com o token resultante visitar nas rotas de maneira semelhante.</h4>
+
 <h1>Telas Desenvolvidas para o Frontend</h1>
 <br>
 
