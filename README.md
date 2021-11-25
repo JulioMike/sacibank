@@ -34,6 +34,33 @@ Ser um banco online, no qual possibilita as seguintes funções bancárias: SAQU
     <li>Consulta de saldo</li>
     <li>Geração de Extrato</li>
  </ul>
+<h1> Hierarquia de usuarios</h1>
+<br>
+<ol>
+ <li> Cliente: Permissão de realizar movimentações bancarias.</li>
+ <li> Gerente(Admin): Permissão de gerencia todos os clientes (CRUD) e Permissão de realizar movimentações bancarias.</li>
+</ol>
+
+<h1>Passos para rodar a API REST (Backend + Insomnia)</h1>
+<br>
+<ol>
+ <li>
+  <h3> Importar arquivos do GitHub. </h3>
+  <p>git clone https://github.com/JulioMike/sacibank.git</p>
+ </li>
+<li>
+  <h3> Navegue para dentro da pasta backend e realize o donwload das dependências do projeto. </h3>
+  <p> cd sacibank && cd backend && yarn add . </p>
+ </li>
+<li>
+  <h3> Aplicação aptar a rodar. </h3>
+  <p> yarn start. </p>
+ </li>
+<li>
+  <h3> Import o arquivo do Insomnia. </h3>
+  <p> Abre o Insomnia, navegue configurações -> data -> import data -> select Insomnia_2021-11-25.json  </p>
+ </li>
+</ol>
 
 <h1>Telas Desenvolvidas para o Frontend</h1>
 <br>
